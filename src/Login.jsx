@@ -1,7 +1,7 @@
 import React, { useState,useContext } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { GenralContext } from "./App";
+import { GenralContext } from "./GenralContext";
 
 function LoginPage() {
   const [email, setEmail] = useState("");

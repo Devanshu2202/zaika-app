@@ -3,7 +3,7 @@ import ResData from "./Items";
 import Header from "./Header";
 import FoodCategory from "./Category";
 import Footer from "./Footer";
-import { GenralContext } from "./App";
+import { GenralContext } from "./GenralContext";
 
 function Home() {
   const [dish, setDish] = useState(ResData);
