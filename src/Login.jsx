@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { GenralContext } from "./App";
 
-function LoginPage({ setIsLoggedIn }) {
+function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const {setIsLoggedIn}=useContext(GenralContext)
 
   const handleLogin = (e) => {
     e.preventDefault();

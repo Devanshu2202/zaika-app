@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ResData from "./Items";
 import Header from "./Header";
 import FoodCategory from "./Category";
 import Footer from "./Footer";
+import { GenralContext } from "./App";
 
-function Home({ isLoggedIn, addToCart, removeFromCart, cartItems }) {
+function Home() {
   const [dish, setDish] = useState(ResData);
   const [item, setItem] = useState(true);
-
+ const {isLoggedIn, addToCart, removeFromCart, cartItems}= useContext(GenralContext)
   function Soup(category) {
     setItem(true);
     const finaldish = ResData.filter((val) => val.cart == category);

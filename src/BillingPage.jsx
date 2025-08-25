@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { GenralContext } from "./App";
 
-function BillingPage({ cartItems }) {
+function BillingPage() {
+  const {cartItems}=useContext(GenralContext)
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",

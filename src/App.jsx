@@ -1,4 +1,5 @@
-import { useState } from "react";
+import {  useState } from "react";
+import { GenralContext } from "./GenralContext";
 import "./App.css";
 import Home from "./Home";
 import LoginPage from "./Login";
@@ -10,10 +11,8 @@ import BillingPage from "./BillingPage";
 import SuccessPage from "./Payment";
 import About from "./AboutUs";
 
-{/* <Routes>
-  existing routes
-  <Route path="/billing" element={<BillingPage />} />
-</Routes> */}
+
+
 
 
 function App() {
@@ -48,6 +47,7 @@ function App() {
   }
 
   return (
+    <GenralContext.Provider value={{isLoggedIn,addToCart,removeFromCart,cartItems,setIsLoggedIn}}>
     <Router>
       <Routes>
         <Route
@@ -80,6 +80,7 @@ function App() {
 
       </Routes>
     </Router>
+    </GenralContext.Provider>
   );
 }
 
