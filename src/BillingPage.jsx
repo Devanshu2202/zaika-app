@@ -1,6 +1,6 @@
 import React, { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { GenralContext } from "./App";
+import { GenralContext } from "./GenralContext";
 
 function BillingPage() {
   const {cartItems}=useContext(GenralContext)

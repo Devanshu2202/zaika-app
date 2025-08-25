@@ -1,6 +1,6 @@
 import { useNavigate} from "react-router-dom";
 import { useContext } from "react";
-import { GenralContext } from "./App";
+import { GenralContext } from "./GenralContext";
 
 function CartPage() {
   const {isLoggedIn, addToCart, removeFromCart, cartItems}= useContext(GenralContext)
