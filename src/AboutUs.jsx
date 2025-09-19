@@ -62,7 +62,7 @@ function About() {
             <Heart className="w-12 h-12 text-orange-500 mb-4" />
             <h3 className="text-xl font-bold text-gray-800">Made with Love</h3>
             <p className="text-gray-600 text-center mt-2">
-              Every order is handled with care, because food is more than a meal – it’s love ❤️.
+              Every order is handled with care, because food is more than a meal – it’s love .
             </p>
           </div>
         </div>
@@ -80,7 +80,7 @@ function About() {
         {/* Team Section */}
         <div className="mt-16">
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
-            Meet Our Team 👨‍👩‍👧‍👦
+            Meet Our Team 
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {team.map((member, id) => (

@@ -1,9 +1,10 @@
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { GenralContext } from "./GenralContext";
 
 function CartPage() {
-  const {isLoggedIn, addToCart, removeFromCart, cartItems}= useContext(GenralContext)
+  const { isLoggedIn, addToCart, removeFromCart, cartItems } =
+    useContext(GenralContext);
   const navigate = useNavigate();
 
   const getTotal = () => {
@@ -15,11 +16,11 @@ function CartPage() {
 
   // Handle proceed button click
   const handleProceed = () => {
-     if (isLoggedIn) {
+    if (isLoggedIn) {
       navigate("/billing");
     } else {
       alert("Please login first to continue!");
-       navigate("/login")
+      navigate("/login");
     }
     // Later you can check login here (using state/context)
     // navigate("/billing");

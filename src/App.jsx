@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { GenralContext } from "./GenralContext";
 import "./App.css";
 import Home from "./Home";
@@ -10,10 +10,10 @@ import toast from "react-hot-toast";
 import BillingPage from "./BillingPage";
 import SuccessPage from "./Payment";
 import About from "./AboutUs";
-
-
-
-
+import SignUpPage from "./SignUp";
+import ForgetPassword from "./ForgetPassword";
+import Dashboard from "./Pages/Admin/Dashboard";
+import Products from "./Pages/Admin/AddProductpage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,15 +22,12 @@ function App() {
   // Add or increase quantity
   function addToCart(item) {
     setCartItems((prev) => {
-       // Check if item already exists in the cart
       const exists = prev.find((p) => p.dec === item.dec);
       if (exists) {
-        // If item exists, increase its quantity
         return prev.map((p) =>
           p.dec === item.dec ? { ...p, quantity: p.quantity + 1 } : p
         );
       }
-      // If item does not exist, add it with quantity = 1
       return [...prev, { ...item, quantity: 1 }];
     });
     toast.success("Item added to cart");
@@ -40,46 +37,40 @@ function App() {
   function removeFromCart(itemDec) {
     setCartItems((prev) =>
       prev
-        .map((p) => (p.dec === itemDec ? { ...p, quantity: p.quantity - 1 } : p))
+        .map((p) =>
+          p.dec === itemDec ? { ...p, quantity: p.quantity - 1 } : p
+        )
         .filter((p) => p.quantity > 0)
     );
-     toast.success("Item removed from cart");
+    toast.success("Item removed from cart");
   }
 
   return (
-    <GenralContext.Provider value={{isLoggedIn,addToCart,removeFromCart,cartItems,setIsLoggedIn}}>
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              isLoggedIn={isLoggedIn}
-              addToCart={addToCart}
-              removeFromCart={removeFromCart}
-              cartItems={cartItems}
-            />
-          }
-        />
-        <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
-        <Route
-          path="/Cart"
-          element={
-            <CartPage
-              cartItems={cartItems}
-              addToCart={addToCart}
-              removeFromCart={removeFromCart}
-              isLoggedIn={isLoggedIn}
-            />
-          }
-        />
-        <Route path="/Help" element={<HelpPage />} />
-         <Route path="/billing" element={<BillingPage  cartItems={cartItems}/>} />
-         <Route path="/payment" element={<SuccessPage />} />
-         <Route path="/about" element={<About />} />
-
-      </Routes>
-    </Router>
+    <GenralContext.Provider
+      value={{
+        isLoggedIn,
+        setIsLoggedIn,
+        cartItems,
+        addToCart,
+        removeFromCart,
+      }}
+    >
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/forget" element={<ForgetPassword />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/help" element={<HelpPage />} />
+          <Route path="/billing" element={<BillingPage />} />
+          <Route path="/payment" element={<SuccessPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/admin-dashboard" element={<Dashboard />} />
+          <Route path="/add-products" element={<Products />} />
+          
+        </Routes>
+      </Router>
     </GenralContext.Provider>
   );
 }
