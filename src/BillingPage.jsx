@@ -28,7 +28,7 @@ function BillingPage() {
     // Save order details in localStorage
     const orderDetails = {
       ...formData,
-      cartItems,
+      items: cartItems,
       total,
     };
     //saves the order details object into the browser’s localStorage by first converting it into a string.
